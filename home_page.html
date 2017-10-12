@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		
+	    <title>home</title>
+	    <link rel="stylesheet" type="text/css" href="css/swiper.css"/>
+	    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_424673_ktk4zlq2xl9jm7vi.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/head_footer.css"/>
+	    <script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+		<title></title>
+		<style type="text/css">
+			.header{
+				height: 0rem;
+			}
+			.footer{ 
+		    overflow: hidden;  
+		    background:#fff;
+		    font-size: 2rem;
+		    height: 7rem;  
+		}  
+		.foot-nav{
+			display: flex;
+			 flex-direction: row;
+			 flex: 1;  
+		    display:-webkit-box;  
+		    height: 100%;  
+		    line-height: 1rem;
+		    text-align: center;  
+		}  
+		.foot-nav *{  
+		    display: block;  
+		    -webkit-box-flex: 1;  
+		    -webkit-flex:1;  
+		    flex:1;  
+		}
+		
+		.foot-nav dl{
+			flex: 1;
+			height: 100%;
+		}
+		
+		.foot-nav dl dt{
+			margin-top: 2px;
+			
+		}
+		
+		.foot-nav dl dd{
+			margin-top: 7px;
+		}
+				
+		.foot-nav dl dt img{
+			margin: 0 auto;
+		}
+		
+		.on{
+		 	background-color: #83b0b6;
+		 	color: #f8f8ff;
+		 }
+		
+		.nav_on{
+			color: #83b0b6;
+		}
+		
+		@media only screen and (max-width: 500px) {
+			.footer{
+		 		height: 3.5rem;
+		 		font-size: 0.6rem;
+		 		
+		 	}
+		 	
+		 	.foot-nav dl dt img{
+		 		width: 1.8rem;
+		 		height: 1.8rem;
+		 	}
+		 	
+		 	.foot-nav dl dd{
+				margin-top: 0;
+				height: 1rem;
+			}
+		}
+		
+		</style>
+	</head>
+	<body>
+		 <div class="page">
+        <header></header>  
+        <section class="content">
+        	
+        </section>  
+        <footer class="footer">  
+            <nav class="foot-nav">  
+                
+                	<dl>
+	                	<dt><img src="img/homes.png"/></dt>
+	                	<dd>首页</dd>
+	                </dl>
+                
+	                 <dl>
+	                	<dt><img src="img/task.png"/></dt>
+	                	<dd>部落</dd>
+	                </dl>
+	            
+	                 <dl>
+	                	<dt><img src="img/me.png"/></dt>
+	                	<dd>个人中心</dd>
+	                </dl>
+	            
+	            	<dl>
+	                	<dt><img src="img/activity.png"/></dt>
+	                	<dd>活动</dd>
+	                </dl> 
+	            
+	                 <dl>
+	                	<dt><img src="img/list.png"/></dt>
+	                	<dd>天才榜</dd>
+	                </dl>
+	               
+            </nav>  
+        </footer>  
+    <script type="text/javascript">
+    	
+	        //尾部导航栏预加载
+	        
+	        $(".foot-nav dl").on("click",function(){
+	        	
+				$(this).addClass("nav_on");
+				$(this).siblings().removeClass("nav_on");
+				$(this).find("dt").find("img").css({
+					"width":"2rem",
+					"height":"2rem"
+				});
+			});
+			
+			var oH = true;
+			var oB = true;
+			var oU = true;
+			var oS = true;
+			var oW = true;
+			
+			$(".foot-nav dl").eq(0).on("click",function(){
+				$(".content").load("index.html");
+				
+				var oB = true;
+				var oU = true;
+				var oS = true;
+				var oW = true;
+				if(oH == true){
+					$(".content").load("index.html");
+				}
+			});
+			
+			
+			
+    </script>
+	</body>
+</html>
