@@ -1,0 +1,46 @@
+
+<div class="logo">
+  	<img src="img/logo.png"/>
+  </div>
+  <div class="header_search">
+  	<a href="search.html"><i class="iconfont icon-sousuo" style="font-size: 1.4rem; color: #83AFB7; position: relative; top: -0.5rem;"></i></a>
+  	<input id="search" type="text" name="keyword" value="" class="" placeholder="搜索文章/作品/帖子">
+  </div>
+  <div class="user_avatar">
+  	<a href="me.html"><img src="img/user.png"/></a>
+  </div>
+
+<script type="text/javascript">
+    	
+    		var oB = document.getElementById('search');
+    		
+    		
+    		oB.onfocus = function(){
+    			console.log(oB.getAttribute("placeholder"));
+    			oB.setAttribute("placeholder","")
+    		}
+    		
+    		oB.onchange = function(){
+    			console.log("文本框的内容改变了！！");
+    		}
+    		
+    		oB.onblur = function(){
+    			console.log("文本框失去焦点！！！");
+    			oB.setAttribute("placeholder","搜索文章/作品/帖子")
+    		}
+    		
+    		document.onkeydown = function(evt){
+    			var oEvent = evt || event;
+    			if(oEvent.keyCode == 13){
+    				console.log(oB.value);
+    				if(oB.value == "文章" || oB.value == "作品" || oB.value == "帖子"){
+    					window.location.href = "search.html";
+    				}else{
+    					alert("搜索信息有错！");
+    				}
+    				
+    			}
+    		}
+    		
+    		
+    </script>

@@ -1,0 +1,297 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>activity</title>
+	<link rel="stylesheet" type="text/css" href="css/head_footer.css"/>
+	<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_424673_2zi55enyqxwjc3di.css"/>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+    <style>
+        
+		/*----------------------------------------------------------------------------------------尾部结束*/
+		
+		/*----------------------------------------------------------------------------------------content导航栏样式*/
+		.content ul{
+			width: 100%;
+			position: fixed;
+			z-index: 2;
+			background-color: white;
+		}
+		
+		
+		/*----------------------------------------------------------------------------------------------吸顶菜单*/
+		
+		.content ul:after {
+			content: "\0020";
+			display: block;
+			height: 0;
+			clear: both;
+		}
+		
+		
+		.content ul li{
+			width: 50%;
+			height: 5rem;
+			line-height: 5rem;
+			text-align: center;
+			float: left;
+			font-size: 1rem;
+		}
+		.content ul li:nth-of-type(1) i{
+			font-size: 2rem;
+			position: relative;
+		    top: 0.35rem;
+		    left: -0.8rem;
+		}
+		.content ul li:nth-of-type(2) i{
+			font-size: 1.7rem;
+			position: relative;
+		    top: 0.28rem;
+		    left: -1rem;
+		}
+		
+		
+		#bottom_style{
+			width: 50%;
+			position: absolute;
+			/*top: 50px;
+			height: 3px;
+			background: dodgerblue;*/
+			color: white;
+			/*background-color: rgba(5,124,130,0.7);*/
+		}
+		/*---------------------------------------------------------------------------------------------文章模板*/
+		.content .my_ranking{
+			margin-top: 80px;
+			height: 3rem;
+			text-align: left;
+			font-size: 1.3rem;
+		}
+		
+		
+		.content .my_ranking .my_portrait{
+				display: inline-block;
+			    width: 3rem;
+			    height: 3rem;
+			    border-radius: 50%;
+			    border: 1px solid #ccc;
+			    overflow: hidden;
+			    position: relative;
+			    top: 0.6rem;
+			    margin: 0 0.6rem;
+			}
+			
+			/*.content .my_ranking img{
+				position: relative;
+				top: 0rem;
+			}
+			*/
+			
+			.content .my_ranking .my_portrait img{
+				width: 100%;
+			}
+		
+			.content table{
+				border-collapse:separate; 
+				border-spacing:20px 24px; 
+			}
+			
+			.bgon{
+				background-color: #83B0B6;
+				color: #fcfffd;
+			}
+		
+		/*---------------------------------------------------------------------------------------------适配开始*/
+		 @media only screen and (max-width: 500px) {
+		 	
+			 /*----------------------------------------------------------------------------------------------模板适配样式*/
+			
+			.content .my_ranking{
+				margin-top: 80px;
+				height: 2rem;
+				font-size: 0.8rem;
+			}
+			
+			.content .my_ranking .my_portrait{
+				display: inline-block;
+			    width: 1.8rem;
+			    height: 1.8rem;
+			    border-radius: 50%;
+			    border: 1px solid #ccc;
+			    overflow: hidden;
+			    position: relative;
+			    top: 0.6rem;
+			    left: 0.2rem;
+			    margin: 0 1rem;
+			}
+			
+			.content .my_ranking img{
+				position: relative;
+				top: 0.2rem;
+				width: 1rem;
+			}
+			
+			
+			.content .my_ranking .my_portrait img{
+				width: 100%;
+			}
+		
+			.content table{
+				border-collapse:separate; 
+				border-spacing:20px 24px; 
+				font-size: 0.8rem;
+			}
+		
+		 }
+		
+    </style>
+    
+    
+    
+</head>
+<body>
+ <div class="page">  
+        <header class="header">  
+          <img src="img/tcb_bg.jpg" style="width: 100%;"/>
+        </header>
+        <section class="content">
+        	<ul id="content_top">
+				<li class="bgon"><i class="iconfont icon-icon"></i>荣誉排名</li>
+				<li><i class="iconfont icon-meiyuan1"></i>积分排名</li>
+			</ul>
+			
+			<div class="my_ranking">
+				<div class="my_portrait">
+					<img src="img/user.png" style="top: 0; border-radius: 50%;"/>
+				</div>
+				<span>我的排名</span>&nbsp;&nbsp;<span id="">3265</span>&nbsp;名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<img src="img/badge/badge_05.png"/>&nbsp;<span>青铜1</span>&nbsp;&nbsp;&nbsp;&nbsp;
+				<span id="">1415</span>&nbsp;分
+			</div>
+			
+			<table border="0" width=100%>
+				<tr>
+					<td>排名</td>
+					<td>名称</td>
+					<td>荣誉称号</td>
+					<td>荣誉点</td>
+					
+				</tr>
+				<tr>
+					<td>01.</td>
+					<td>一二三四五六七八</td>
+					<td>最强王者</td>
+					<td>6250</td>
+					
+				</tr>
+				<tr>
+					<td>02.</td>
+					<td>一二三四五六七</td>
+					<td>最强王者</td>
+					<td>6250</td>
+					
+				</tr>
+				<tr>
+					<td>03.</td>
+					<td>一二三四五六</td>
+					<td>最强王者</td>
+					<td>6250</td>
+					
+				</tr>
+				<tr>
+					<td>04.</td>
+					<td>一二三四五六</td>
+					<td>最强王者</td>
+					<td>6250</td>
+					
+				</tr>
+				<tr>
+					<td>05.</td>
+					<td>一二三四五六</td>
+					<td>最强王者</td>
+					<td>6250</td>
+					
+				</tr>
+				<tr>
+					<td>06.</td>
+					<td>一二三四五六</td>
+					<td>最强王者</td>
+					<td>6250</td>
+					
+				</tr>
+				<tr>
+					<td>07.</td>
+					<td>一二三四五六</td>
+					<td>最强王者</td>
+					<td>6250</td>
+					
+				</tr>
+				<tr>
+					<td>08.</td>
+					<td>一二三四五六</td>
+					<td>最强王者</td>
+					<td>6250</td>
+					
+				</tr>
+				<tr>
+					<td>09.</td>
+					<td>一二三四五六</td>
+					<td>最强王者</td>
+					<td>6250</td>
+					
+				</tr>
+				<tr>
+					<td>10.</td>
+					<td>一二三四五六</td>
+					<td>最强王者</td>
+					<td>6250</td>
+					
+				</tr>
+				
+			</table>
+			
+        </section>  
+        <footer class="footer">  
+            <nav class="foot-nav">  
+                <a href="index.html">
+                	<dl>
+	                	<dt><img src="img/homes.png"/></dt>
+	                	<dd>首页</dd>
+	                </dl>
+                </a>
+                <a href="###">
+	                 <dl>
+	                	<dt><img src="img/task.png"/></dt>
+	                	<dd>部落</dd>
+	                </dl>
+	            </a>
+	            <a href="me.html">
+	                 <dl>
+	                	<dt><img src="img/me.png"/></dt>
+	                	<dd>个人中心</dd>
+	                </dl>
+	            </a>
+	            <a href="match.html">
+	            	<dl>
+	                	<dt><img src="img/activity.png"/></dt>
+	                	<dd>活动</dd>
+	                </dl> 
+	            </a>
+	            <a href="activity.html">     
+	                 <dl>
+	                	<dt><img src="img/list.png"/></dt>
+	                	<dd>天才榜</dd>
+	                </dl>
+	            </a>    
+            </nav>  
+        </footer>  
+    </div>
+    <script type="text/javascript">
+			$("#content_top li").on("click",function(){
+				$(this).addClass("bgon");
+				$(this).siblings().removeClass("bgon");
+			});
+	</script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>my_opus</title>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_424673_ktk4zlq2xl9jm7vi.css"/>
+	<link rel="stylesheet" type="text/css" href="css/head_footer.css"/>
+    <style>
+       @media only screen and (max-width: 500px) {	
+		.header{  
+		    height: 8rem;
+		    background: url(img/banner.png) no-repeat;
+		    background-size: 100% 100%;
+		    position: relative;
+		} 
+	
+		.header .iconfont{
+			    color: white;
+			    font-size: 2rem;
+			    line-height: 6.6rem;
+			    margin-left: 2rem;
+			    
+		}
+		
+		.header .user_center_avater img{
+			width: 100%;
+			height: 100%;
+		}
+		
+	 	.header .user_center_avater{
+	 		
+	 		border-radius: 3.6rem;
+	 		width: 3.6rem;
+	 		height: 3.6rem;
+	 		overflow: hidden;
+	 		position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    margin-left: -1.8rem;
+		    margin-top: -2.8rem;
+	 	}
+		 
+		.header .my_name{
+			width: 100%;
+		    text-align: center;
+		    position: absolute;
+		    bottom: 1.5rem;
+		    color: white;
+		    font-size: 1rem;
+		}	
+		 
+	}
+		
+		
+		
+		  
+    </style>
+    
+    
+    
+</head>
+<body>
+ <div class="page">  
+        <header class="header">
+        	<i class="iconfont icon-jiantou-copy" onclick="goBack()"></i>
+        	<div class="user_center_avater">
+        		<img src="img/user.png"/>
+        	</div>
+        	<span class="my_name">小明</span>
+        </header>  
+        <section class="content">
+        </section>  
+        <footer class="footer">  
+            <nav class="foot-nav">  
+                <a href="index.html">
+                	<dl>
+	                	<dt><img src="img/homes.png"/></dt>
+	                	<dd>首页</dd>
+	                </dl>
+                </a>
+                <a href="###">
+	                 <dl>
+	                	<dt><img src="img/task.png"/></dt>
+	                	<dd>部落</dd>
+	                </dl>
+	            </a>
+	            <a href="me.html">
+	                 <dl>
+	                	<dt><img src="img/me.png"/></dt>
+	                	<dd>个人中心</dd>
+	                </dl>
+	            </a>
+	            <a href="match.html">
+	            	<dl>
+	                	<dt><img src="img/activity.png"/></dt>
+	                	<dd>活动</dd>
+	                </dl> 
+	            </a>
+	            <a href="activity.html">     
+	                 <dl>
+	                	<dt><img src="img/list.png"/></dt>
+	                	<dd>天才榜</dd>
+	                </dl>
+	            </a>    
+            </nav>  
+        </footer>  
+    </div>  
+<script type="text/javascript" src="js/history.js" ></script>
+<script type="text/javascript">
+	$(function(){
+		$(".content").load("home_2.html")
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,574 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>search</title>
+	<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_424673_924tp4yn0bl6jemi.css"/>
+	<link rel="stylesheet" type="text/css" href="css/head_footer.css"/>
+    <link rel="stylesheet" type="text/css" href="css/search.css"/>
+    <style>
+       	/*----------------------------------------------------------------------------------------flex头部*/  
+		.header{  
+		    display: -webkit-box;
+		    font-size: 2rem;
+		    height: 6rem;
+		    display: flex;
+		    flex-direction: row;  
+		} 
+		/*----------------------------------------------------------------------------------------content导航栏样式*/
+		.content ul{
+			width: 100%;
+			height: 3.4rem;
+			font-size: 1.2rem;
+			position: fixed;
+			z-index: 2;
+		}
+		/*----------------------------------------------------------------------------------------------吸顶菜单*/
+		.content ul:after {
+			content: "\0020";
+			display: block;
+			height: 0;
+			clear: both;
+		}
+		.content ul li{
+			width: 20%;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			/*border: 1px solid black;*/
+			float: left;
+			background-color: white;
+		}
+		
+		/*---------------------------------------------------------------------------------------------适配开始*/
+		 @media only screen and (max-width: 500px) {
+		 	.header{  
+			    display: -webkit-box;
+			    font-size: 2rem;
+			    height: 4rem;
+			    display: flex;
+			    flex-direction: row;  
+			} 
+			
+			 /*----------------------------------------------------------------------------------------------模板适配样式*/
+			 .content ul{
+			 	top: 62px;
+			 }
+			 #content_top:after {
+				content: "\0020";
+				display: block;
+				height: 0;
+				clear: both;
+			}
+			 
+			.content .content_mobile .left{
+				   	height: 85px;
+				   	flex: 1;
+				   	overflow: hidden;
+				   	margin-right: 0.2rem;
+				}
+				
+			.content .content_mobile .left img{
+				 width: 100%;
+			}
+				   
+			.content .content_mobile .htext{
+				   /*	flex: 1.6;*/
+				   	font-size: 1rem;
+				   	text-align: left;
+				   	padding-left: 10px;
+				}
+			 
+			.content .content_mobile .htext p{
+			 	margin-bottom: 0.5rem;
+			 	/*font-weight: bold;*/
+			 	font-size: 1.1rem;
+			 }
+			 
+			 /*模板适配*/
+			 .content .mobile_title {
+			    height: 5rem;
+			    width: 100%;
+			    text-align: center;
+			    line-height: 5rem;
+			    font-size: 1.3rem;
+			}
+			 
+		 	.footer{
+		 		height: 3.5rem;
+		 		font-size: 0.6rem;
+		 	}
+		 	
+		 	.foot-nav dl dt img{
+		 		width: 2rem;
+		 		height: 2rem;
+		 	}
+		 	
+		 	.foot-nav dl dd{
+				margin-top: 0;
+			}
+		 	
+		 }
+		
+    </style>
+    
+    <script type="text/javascript">
+			onload = function(){
+				
+				//弹性滑块
+				var oList = document.getElementById("content_top");
+				var oLi = oList.getElementsByTagName("li");
+				var oXz = oLi[oLi.length-1];
+				
+				for (var i = 0; i < oLi.length-1; i++) {
+					oLi[i].onclick = function(){
+						startMove(oXz,this.offsetLeft);
+						console.log(this.parentNode.getAttribute("href"));
+						
+						var n = this.parentNode.getAttribute("href");
+						
+						if( n == "#user_modular"){
+							document.getElementById("user_modular").style.display = "block";
+							document.getElementById("user_modular").getElementsByClassName("mobile_title")[0].style.display = "none";
+							document.getElementById("user_modular").style.marginTop = 3.2+"rem";
+							document.getElementById("tribune_modular").style.display = "none";
+							document.getElementById("article_modular").style.display = "none";
+							document.getElementById("opus_modular").style.display = "none";
+							document.getElementById("card_modular").style.display = "none";
+						}else if( n == "#tribune_modular" ){
+							document.getElementById("user_modular").style.display = "none";
+							document.getElementById("tribune_modular").style.display = "block";
+							document.getElementById("tribune_modular").getElementsByClassName("mobile_title")[0].style.display = "none";
+							document.getElementById("tribune_modular").style.marginTop = 3.2+"rem";
+							document.getElementById("article_modular").style.display = "none";
+							document.getElementById("opus_modular").style.display = "none";
+							document.getElementById("card_modular").style.display = "none";
+						}else if( n == "#article_modular" ){
+							document.getElementById("user_modular").style.display = "none";
+							document.getElementById("tribune_modular").style.display = "none";
+							document.getElementById("article_modular").style.display = "block";
+							document.getElementById("article_modular").getElementsByClassName("mobile_title")[0].style.display = "none";
+							document.getElementById("article_modular").style.marginTop = 3.2+"rem";
+							document.getElementById("opus_modular").style.display = "none";
+							document.getElementById("card_modular").style.display = "none";
+						}else if( n == "#opus_modular" ){
+							document.getElementById("user_modular").style.display = "none";
+							document.getElementById("tribune_modular").style.display = "none";
+							document.getElementById("article_modular").style.display = "none";
+							document.getElementById("opus_modular").style.display = "block";
+							document.getElementById("opus_modular").getElementsByClassName("mobile_title")[0].style.display = "none";
+							document.getElementById("opus_modular").style.marginTop = 3.2+"rem";
+							document.getElementById("card_modular").style.display = "none";
+						}else if( n == "#card_modular" ){
+							document.getElementById("user_modular").style.display = "none";
+							document.getElementById("tribune_modular").style.display = "none";
+							document.getElementById("article_modular").style.display = "none";
+							document.getElementById("opus_modular").style.display = "none";
+							document.getElementById("card_modular").style.display = "block";
+							document.getElementById("card_modular").getElementsByClassName("mobile_title")[0].style.display = "none";
+							document.getElementById("card_modular").style.marginTop = 3.2+"rem";
+						}
+						
+					}
+				}
+				
+				function startMove(obj,iTarget){
+					//清除以前的定时器
+					clearInterval(obj.timer);
+					var iSpeed = 0;
+					obj.timer = setInterval(function(){
+						var current = obj.offsetLeft;
+						iSpeed += (iTarget - current)/5;
+						iSpeed *= 0.7;
+						if (Math.abs(iSpeed) < 1 && Math.abs(iTarget - current) < 1) {
+							obj.style.left = iTarget + "px";
+							clearInterval(obj.timer);
+							return;
+							
+						}
+						
+						obj.style.left = current + iSpeed + "px";
+					});
+					
+					
+				}
+				
+				
+				var oB = document.getElementById('search');
+    		
+				
+				oB.onfocus = function(){
+					console.log(oB.getAttribute("placeholder"));
+					oB.setAttribute("placeholder","")
+				}
+				
+				oB.onchange = function(){
+					console.log("文本框的内容改变了！！");
+				}
+				
+				oB.onblur = function(){
+					console.log("文本框失去焦点！！！");
+					oB.setAttribute("placeholder","搜索文章/作品/帖子")
+				}
+				
+				document.onkeydown = function(evt){
+					var oEvent = evt || event;
+					if(oEvent.keyCode == 13){
+						console.log(oB.value);
+						if(oB.value !== " "){
+							document.getElementById("user_modular").style.display = "block";
+							document.getElementById("user_modular").getElementsByClassName("mobile_title")[0].style.display = "none";
+							document.getElementById("user_modular").style.marginTop = 3.2+"rem";
+							document.getElementById("tribune_modular").style.display = "none";
+							document.getElementById("article_modular").style.display = "none";
+							document.getElementById("opus_modular").style.display = "none";
+							document.getElementById("card_modular").style.display = "none";
+						}else{
+							alert("搜索信息有错！");
+						}
+						
+					}
+				}
+    		
+			}
+		</script>
+    
+</head>
+<body>
+ <div class="page">  
+        <header class="header">  
+          <div class="logo">
+          	<img src="img/logo.png"/>
+          </div>
+          <div class="header_search">
+          	<i class="iconfont icon-sousuo" style="font-size: 1.4rem; color: #83AFB7; position: relative; top: -0.5rem;"></i>
+          	<input type="text" name="keyword" value="" id="search" placeholder="搜索文章/作品/帖子">
+          </div>
+          <div class="user_avatar">
+          	<img src="img/user.png"/>
+          </div>
+          
+        </header>
+        <section class="content">
+        	<ul id="content_top">
+				<a href="#user_modular"><li>用户</li></a>
+				<a href="#tribune_modular"><li>部落</li></a>
+				<a href="#article_modular"><li>文章</li></a>
+				<a href="#opus_modular"><li>作品</li></a>
+				<a href="#card_modular"><li>帖子</li></a>
+				<li id="bottom_style"></li>
+			</ul>
+			<div id="article_modular">
+				<div class="mobile_title">
+					文章
+				</div>
+				<div class="content_mobile">
+					<div class="left"><img src="img/imgnew.png"/></div>
+					<div class="htext">
+						<p>11大编程语言薪资排行榜，再不学Python就晚了！</p>
+						<i class="iconfont icon-clock"></i>
+						<span>2017-09-03</span>
+						&nbsp;&nbsp;&nbsp;
+						<i class="iconfont icon-liulanliang"></i>
+						<span>6.9K</span>
+					</div>
+						
+				</div>
+				<div class="content_mobile">
+					<div class="left"><img src="img/imgnew.png"/></div>
+					<div class="htext">
+						<p>黑客计划入门第三篇：转圈圈</p>
+						<i class="iconfont icon-clock"></i>
+						<span>2017-09-03</span>
+						&nbsp;&nbsp;&nbsp;
+						<i class="iconfont icon-liulanliang"></i>
+						<span>6.9K</span>
+					</div>
+						
+				</div>
+			</div>
+			
+			<div id="card_modular">
+				<div class="mobile_title">
+					帖子
+				</div>
+				<div class="content_mobile">
+					
+					<div class="htext">
+						<p>11大编程语言薪资排行榜，再不学Python就晚了！</p>
+						<span>杰克·斯帕洛啦啦啦啦</span>&nbsp;&nbsp;&nbsp;<span>黑珍珠号</span>&nbsp;&nbsp;&nbsp;<span>五周前</span><br>
+						<i class="iconfont icon-clock"></i>
+						<span>4253</span>
+						&nbsp;&nbsp;&nbsp;
+						<i class="iconfont icon-liulanliang"></i>
+						<span>453</span>
+						&nbsp;&nbsp;&nbsp;
+						<i class="iconfont icon-liulanliang"></i>
+						<span>45</span>
+					</div>
+					<div class="left"><img src="img/imgnew.png"/></div>
+				</div>
+				<div class="content_mobile">
+					
+					<div class="htext">
+						<p>11大编程语言薪资排行榜，再不学Python就晚了！</p>
+						<span>杰克·斯帕洛啦啦啦啦</span>&nbsp;&nbsp;&nbsp;<span>黑珍珠号</span>&nbsp;&nbsp;&nbsp;<span>五周前</span><br>
+						<i class="iconfont icon-clock"></i>
+						<span>4253</span>
+						&nbsp;&nbsp;&nbsp;
+						<i class="iconfont icon-liulanliang"></i>
+						<span>453</span>
+						&nbsp;&nbsp;&nbsp;
+						<i class="iconfont icon-liulanliang"></i>
+						<span>45</span>
+					</div>
+					<div class="left"><img src="img/imgnew.png"/></div>
+				</div>
+				<div class="content_mobile">
+					
+					<div class="htext">
+						<p>11大编程语言薪资排行榜，再不学Python就晚了！</p>
+						<span>杰克·斯帕洛啦啦啦啦</span>&nbsp;&nbsp;&nbsp;<span>黑珍珠号</span>&nbsp;&nbsp;&nbsp;<span>五周前</span><br>
+						<i class="iconfont icon-clock"></i>
+						<span>4253</span>
+						&nbsp;&nbsp;&nbsp;
+						<i class="iconfont icon-liulanliang"></i>
+						<span>453</span>
+						&nbsp;&nbsp;&nbsp;
+						<i class="iconfont icon-liulanliang"></i>
+						<span>45</span>
+					</div>
+					<div class="left"><img src="img/imgnew.png"/></div>
+				</div>
+			</div>
+			
+			<div id="opus_modular">
+				<div class="mobile_title">
+					作品
+				</div>
+				
+				<div class="content_mobile">
+					<div class="left"><img src="img/opus_img.jpg"/></div>
+					<div class="htext">
+						<strong>计时器编程</strong><br />
+						<i class="iconfont icon-liulanliang"></i>
+						<span>4253</span>
+						&nbsp;
+						<i class="iconfont icon-dianzan"></i><span>453</span>
+						&nbsp;
+						<i class="iconfont icon-xihuan"></i><span>45</span>
+						<p>很用心的做程序希望各位老师多多指教，非常感谢大家</p>
+					</div>
+					<div class="bottom">
+						<img src="img/user.png" style="width: 25px; position: relative; top: 7px;"/>&nbsp;&nbsp;<span>初醒的伊夏</span><span style="float: right;">20分钟前</span>
+					</div>
+						
+				</div>
+				
+				<div class="content_mobile">
+					<div class="left"><img src="img/opus_img2.jpg"/></div>
+					<div class="htext">
+						<strong>计时器编程</strong><br />
+						<i class="iconfont icon-liulanliang"></i>
+						<span>4253</span>
+						&nbsp;
+						<i class="iconfont icon-dianzan"></i><span>453</span>
+						&nbsp;
+						<i class="iconfont icon-xihuan"></i><span>45</span>
+						<p>很用心的做程序希望各位老师多多指教，非常感谢大家</p>
+					</div>
+					<div class="bottom">
+						<img src="img/user.png" style="width: 25px; position: relative; top: 7px;"/>&nbsp;&nbsp;<span>初醒的伊夏</span><span style="float: right;">20分钟前</span>
+					</div>
+						
+				</div>
+				<div class="content_mobile">
+					<div class="left"><img src="img/opus_img3.jpg"/></div>
+					<div class="htext">
+						<strong>计时器编程</strong><br />
+						<i class="iconfont icon-liulanliang"></i>
+						<span>4253</span>
+						&nbsp;
+						<i class="iconfont icon-dianzan"></i><span>453</span>
+						&nbsp;
+						<i class="iconfont icon-xihuan"></i><span>45</span>
+						<p>很用心的做程序希望各位老师多多指教，非常感谢大家</p>
+					</div>
+					<div class="bottom">
+						<img src="img/user.png" style="width: 25px; position: relative; top: 7px;"/>&nbsp;&nbsp;<span>初醒的伊夏</span><span style="float: right;">20分钟前</span>
+					</div>
+						
+				</div>
+				<div class="content_mobile">
+					<div class="left"><img src="img/opus_img4.jpg"/></div>
+					<div class="htext">
+						<strong>计时器编程</strong><br />
+						<i class="iconfont icon-liulanliang"></i>
+						<span>4253</span>
+						&nbsp;
+						<i class="iconfont icon-dianzan"></i><span>453</span>
+						&nbsp;
+						<i class="iconfont icon-xihuan"></i><span>45</span>
+						<p>很用心的做程序希望各位老师多多指教，非常感谢大家</p>
+					</div>
+					<div class="bottom">
+						<img src="img/user.png" style="width: 25px; position: relative; top: 7px;"/>&nbsp;&nbsp;<span>初醒的伊夏</span><span style="float: right;">20分钟前</span>
+					</div>
+						
+				</div>
+				<div class="content_mobile">
+					<div class="left"><img src="img/opus_img.jpg"/></div>
+					<div class="htext">
+						<strong>计时器编程</strong><br />
+						<i class="iconfont icon-liulanliang"></i>
+						<span>4253</span>
+						&nbsp;
+						<i class="iconfont icon-dianzan"></i><span>453</span>
+						&nbsp;
+						<i class="iconfont icon-xihuan"></i><span>45</span>
+						<p>很用心的做程序希望各位老师多多指教，非常感谢大家</p>
+					</div>
+					<div class="bottom">
+						<img src="img/user.png" style="width: 25px; position: relative; top: 7px;"/>&nbsp;&nbsp;<span>初醒的伊夏</span><span style="float: right;">20分钟前</span>
+					</div>
+						
+				</div>
+				<div class="content_mobile">
+					<div class="left"><img src="img/opus_img3.jpg"/></div>
+					<div class="htext">
+						<strong>计时器编程</strong><br />
+						<i class="iconfont icon-liulanliang"></i>
+						<span>4253</span>
+						&nbsp;
+						<i class="iconfont icon-dianzan"></i><span>453</span>
+						&nbsp;
+						<i class="iconfont icon-xihuan"></i><span>45</span>
+						<p>很用心的做程序希望各位老师多多指教，非常感谢大家</p>
+					</div>
+					<div class="bottom">
+						<img src="img/user.png" style="width: 25px; position: relative; top: 7px;"/>&nbsp;&nbsp;<span>初醒的伊夏</span><span style="float: right;">20分钟前</span>
+					</div>
+						
+				</div>
+			</div>
+			
+			<div id="user_modular">
+				<div class="mobile_title">
+					用户
+				</div>
+				<div class="content_mobile">
+					
+					<div class="htext">
+						<span style="color: black;">杰克·斯帕洛啦啦啦啦</span><br>
+						<span>这个人很懒什么也没留下！</span>
+						
+					</div>
+					<div class="left"><img src="img/imgnew.png"/></div>
+				</div>
+				
+				<div class="content_mobile">
+					
+					<div class="htext">
+						<span style="color: black;">杰克·斯帕洛啦啦啦啦</span><br>
+						<span>这个人很懒什么也没留下！</span>
+					</div>
+					<div class="left"><img src="img/imgnew.png"/></div>
+				</div>
+				
+				<div class="content_mobile">
+					<div class="htext">
+						<span style="color: black;">杰克·斯帕洛啦啦啦啦</span><br>
+						<span>这个人很懒什么也没留下！</span>
+					</div>
+					<div class="left"><img src="img/imgnew.png"/></div>
+				</div>
+			</div>
+			
+			<div id="tribune_modular">
+				<div class="mobile_title">
+					部落
+				</div>
+				<div class="content_mobile">
+					<div class="left"><img src="img/tribe_1.jpg"/></div>
+					<div class="htext">
+						<span>部落名称：</span>&nbsp;<span>编程猫的小窝编程猫的小窝做窝</span><br />
+						<span>部落分类：</span>&nbsp;<span>治愈小程序</span><br />
+						<span>创建时间：</span>&nbsp;<span>2015-05-25</span><br />
+						<i class="iconfont icon-renshu"></i><span>63</span>&nbsp;&nbsp;&nbsp;<i class="iconfont icon-iconfontdocument1"></i><span>352</span>
+					</div>
+						
+				</div>
+				<div class="content_mobile">
+					<div class="left"><img src="img/tribe_1.jpg"/></div>
+					<div class="htext">
+						<span>部落名称：</span>&nbsp;<span>编程猫的小窝编程猫的小窝做窝</span><br />
+						<span>部落分类：</span>&nbsp;<span>治愈小程序</span><br />
+						<span>创建时间：</span>&nbsp;<span>2015-05-25</span><br />
+						<i class="iconfont icon-renshu"></i><span>63</span>&nbsp;&nbsp;&nbsp;<i class="iconfont icon-iconfontdocument1"></i><span>352</span>
+					</div>
+						
+				</div>
+				<div class="content_mobile">
+					<div class="left"><img src="img/tribe_1.jpg"/></div>
+					<div class="htext">
+						<span>部落名称：</span>&nbsp;<span>编程猫的小窝编程猫的小窝做窝</span><br />
+						<span>部落分类：</span>&nbsp;<span>治愈小程序</span><br />
+						<span>创建时间：</span>&nbsp;<span>2015-05-25</span><br />
+						<i class="iconfont icon-renshu"></i><span>63</span>&nbsp;&nbsp;&nbsp;<i class="iconfont icon-iconfontdocument1"></i><span>352</span>
+					</div>
+						
+				</div>
+				<div class="content_mobile">
+					<div class="left"><img src="img/tribe_1.jpg"/></div>
+					<div class="htext">
+						<span>部落名称：</span>&nbsp;<span>编程猫的小窝编程猫的小窝做窝</span><br />
+						<span>部落分类：</span>&nbsp;<span>治愈小程序</span><br />
+						<span>创建时间：</span>&nbsp;<span>2015-05-25</span><br />
+						<i class="iconfont icon-renshu"></i><span>63</span>&nbsp;&nbsp;&nbsp;<i class="iconfont icon-iconfontdocument1"></i><span>352</span>
+					</div>
+						
+				</div>
+				
+				
+			</div>
+			
+        </section>  
+        <footer class="footer">  
+            <nav class="foot-nav">  
+                <a href="index.html">
+                	<dl>
+	                	<dt><img src="img/homes.png"/></dt>
+	                	<dd>首页</dd>
+	                </dl>
+                </a>
+                <a href="###">
+	                 <dl>
+	                	<dt><img src="img/task.png"/></dt>
+	                	<dd>部落</dd>
+	                </dl>
+	            </a>
+	            <a href="me.html">
+	                 <dl>
+	                	<dt><img src="img/me.png"/></dt>
+	                	<dd>个人中心</dd>
+	                </dl>
+	            </a>
+	            <a href="match.html">
+	            	<dl>
+	                	<dt><img src="img/activity.png"/></dt>
+	                	<dd>活动</dd>
+	                </dl> 
+	            </a>
+	            <a href="activity.html">     
+	                 <dl>
+	                	<dt><img src="img/list.png"/></dt>
+	                	<dd>天才榜</dd>
+	                </dl>
+	            </a>    
+            </nav>  
+        </footer>  
+    </div>
+    
+</body>
+</html>
